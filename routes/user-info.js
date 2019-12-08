@@ -18,7 +18,7 @@ router.get('/', async(req, res) => {
 });
 
 router.get('/:employeeId', async(req, res) => {
-      const user = await User.find(req.params.employeeId);
+      const user = await User.find({employeeId: req.params.employeeId});
       if(!user) return res.status(404).send('given employeeId is not found');
       res.send(user);
     });
